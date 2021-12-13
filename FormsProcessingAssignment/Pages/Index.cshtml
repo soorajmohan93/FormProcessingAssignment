@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Add days to a date</h1>
+</div>
+
+
+<section class="add">
+    <form asp-page="Index" method="post">
+        <div>
+            <label asp-for="DateToChange.NumberInput">
+            </label>
+            <input asp-for="DateToChange.NumberInput" />
+            <span class="message" asp-validation-for="DateToChange.NumberInput"></span>
+        </div>
+        <div>
+            <label asp-for="DateToChange.DateTimeInput">
+            </label>
+            <input type="date" asp-for="DateToChange.DateTimeInput" />
+            <span class="message" asp-validation-for="DateToChange.DateTimeInput"></span>
+        </div>
+        <input type="submit" value="Calculate date" />
+    </form>
+    @if (Model.DisplayResult)
+    {
+        <p> Result date is : @Model.Result</p>
+    }
+</section>
+
